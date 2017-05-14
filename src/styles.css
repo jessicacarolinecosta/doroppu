@@ -5,6 +5,7 @@
 body {
   margin: 0;
   background-color: #e1e8f0;
+  position: relative;
 }
 
 /** Loading **/
