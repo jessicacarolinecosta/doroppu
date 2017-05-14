@@ -5,14 +5,85 @@
 @roxo: #9068be;
 @verde-agua: #6ed3cf;
 
-.main {
-  background-color: @base;
-  height: 100%;
+.display-flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .topo {
-  background-color: @cinza-claro;
-  -webkit-box-shadow: 0px 2px 24px -1px @cinza-escuro;
-  -moz-box-shadow: 0px 2px 24px -1px @cinza-escuro;
-  box-shadow: 0px 2px 24px -1px @cinza-escuro;
+    .container-fluid {
+        background-color: @cinza-claro;
+        -webkit-box-shadow: 0px 2px 24px -1px @cinza-escuro;
+        -moz-box-shadow: 0px 2px 24px -1px @cinza-escuro;
+        box-shadow: 0px 2px 24px -1px @cinza-escuro;
+        .display-flex;
+    		justify-content: space-between;
+        align-items: left;
+    		flex-flow: row nowrap;
+        .left {
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          .display-flex;
+          -webkit-box-flex: 1;
+          -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+          float: none;
+          margin-left: 0;
+          margin-right: 0;
+          min-height: 0;
+          min-width: 0;
+          padding-right: 0;
+          width: auto;
+          input {
+              width: 70%;
+              margin:auto;
+              min-height: 35px;
+              border-radius: 5px;
+              border: 0px;
+              padding: 5px;
+          }
+        }
+        .right {
+          -webkit-box-flex: 0;
+          -ms-flex: none;
+          flex: none;
+        }
+    }
+    img {
+        width: 60px;
+        padding: 10px;
+    }
+    .logo {
+        display: inline-block;
+        img {
+              width: 100px;
+        }
+    }
+    .fa-stack {
+        cursor: pointer;
+        font-size: 22px;
+        margin-top: 8px;
+        .fa-square {
+            color: #3e3f40;
+        }
+        .fa-square-o {
+            color: @base;
+            font-size: 15px;
+        }
+        &:last-child {
+          .fa-square-o {
+              font-size: 25px;
+          }
+        }
+        &:hover {
+          .fa-square {
+              color: @base;
+          }
+          .fa-square-o {
+              color: #3e3f40;
+          }
+        }
+    }
 }

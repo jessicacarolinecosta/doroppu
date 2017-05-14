@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 // configurações
 @Component({
   selector: 'app-root',
-  templateUrl: '../partials/listaShots.html',
+  templateUrl: '../view/listaShots.html',
   styleUrls: ['../css/listaShots.less']
 })
 export class ListaShots {
