@@ -1,18 +1,17 @@
 <header class="topo">
   <div class="container-fluid">
     <div class="left">
-      <!-- <img src="{{dadosUsuario.avatar_url}}"> -->
       <div class="logo">
         <img src="../../assets/img/logo.png" alt="Doroppu" title="Doroppu">
       </div>
       <input type="text" name="pesquisa-shot" placeholder="Pesquisar...">
     </div>
     <div class="right">
-      <span class="fa-stack fa-lg">
+      <span class="fa-stack fa-lg" (click)="mudaTamanhoShots(false)">
         <i class="fa fa-square fa-stack-2x"></i>
         <i class="fa fa-square-o fa-stack-1x"></i>
       </span>
-      <span class="fa-stack fa-lg">
+      <span class="fa-stack fa-lg" (click)="mudaTamanhoShots(true)">
         <i class="fa fa-square fa-stack-2x"></i>
         <i class="fa fa-square-o fa-stack-1x"></i>
       </span>
@@ -22,71 +21,15 @@
 <section id="conteudo">
   <div class="container-fluid">
   <ul>
-    <li>
+    <li *ngFor="let shot of shots; let i = index">
         <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
+          <img *ngIf="tamanhoGrande" src="{{shot.images.normal}}" alt="">
+          <img *ngIf="!tamanhoGrande" src="{{shot.images.teaser}}" alt="">
         </div>
-        <label>texto</label>
+        <label>{{shot.title}}</label>
     </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-    <li>
-        <div class="thumb">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97300&w=400&h=300" alt="">
-        </div>
-        <label>texto</label>
-    </li>
-
-
-
-
   </ul>
+  <button type="button" name="button" class="btn" (click)="paginaShots = paginaShots + 1; getShots()">Carregar Mais</button>
 </div>
 </section>
 <div id="footer">
