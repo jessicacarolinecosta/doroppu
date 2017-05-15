@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { ListaShots } from './js/listaShots';
+import { Filtro } from './js/busca.pipe';
 
 @NgModule({
   declarations: [
-    ListaShots
+    ListaShots,
+    Filtro
   ],
   imports: [
     BrowserModule,

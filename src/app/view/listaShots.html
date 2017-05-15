@@ -4,14 +4,14 @@
       <div class="logo">
         <img src="../../assets/img/logo.png" alt="Doroppu" title="Doroppu">
       </div>
-      <input type="text" name="pesquisa-shot" placeholder="Pesquisar...">
+      <input type="text" name="pesquisa-shot" placeholder="Pesquisar..." [value]="stringBusca" (input)="stringBusca = $event.target.value">
     </div>
     <div class="right">
-      <span class="fa-stack fa-lg" (click)="mudaTamanhoShots(false)">
+      <span [ngClass]="{active: tamanhoGrande == false}" class="fa-stack fa-lg" (click)="mudaTamanhoShots(false)">
         <i class="fa fa-square fa-stack-2x"></i>
         <i class="fa fa-square-o fa-stack-1x"></i>
       </span>
-      <span class="fa-stack fa-lg" (click)="mudaTamanhoShots(true)">
+      <span [ngClass]="{active: tamanhoGrande == true}" class="fa-stack fa-lg" (click)="mudaTamanhoShots(true)">
         <i class="fa fa-square fa-stack-2x"></i>
         <i class="fa fa-square-o fa-stack-1x"></i>
       </span>
@@ -21,7 +21,7 @@
 <section id="conteudo">
   <div class="container-fluid">
   <ul>
-    <li *ngFor="let shot of shots; let i = index">
+    <li *ngFor="let shot of shots | filtro : 'title' : stringBusca">
         <div class="thumb">
           <img *ngIf="tamanhoGrande" src="{{shot.images.normal}}" alt="">
           <img *ngIf="!tamanhoGrande" src="{{shot.images.teaser}}" alt="">
