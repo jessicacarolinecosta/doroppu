@@ -21,15 +21,47 @@
 <section id="conteudo">
   <div class="container-fluid">
   <ul>
-    <li *ngFor="let shot of shots | filtro : 'title' : stringBusca">
-        <div class="thumb">
-          <img *ngIf="tamanhoGrande" src="{{shot.images.normal}}" alt="">
-          <img *ngIf="!tamanhoGrande" src="{{shot.images.teaser}}" alt="">
-        </div>
-        <label>{{shot.title}}</label>
+    <li *ngFor="let shot of shots | filtro : 'title' : stringBusca" (click)="popularDados(shot)">
+        <label class="gomodal" for="showblock">
+          <div class="thumb">
+            <img *ngIf="tamanhoGrande" src="{{shot.images.normal}}" alt="">
+            <img *ngIf="!tamanhoGrande" src="{{shot.images.teaser}}" alt="">
+          </div>
+        </label>
+        <label class="titulo-shot">{{shot.title}}</label>
     </li>
   </ul>
   <button type="button" name="button" class="btn" (click)="paginaShots = paginaShots + 1; getShots()">Carregar Mais</button>
+</div>
+
+<input type="checkbox" id="showblock" />
+<div id="modal">
+		<div class="container">
+				<div class="modal-conteudo">
+						<label class="close" for="showblock">X</label>
+						<div>
+								<div class="topo-modal">
+										<div><img src="{{shotDados.user.avatar_url}}" alt="{{shotDados.user.name}}" title="{{shotDados.user.name}}"></div>
+                      <p><a href="{{shotDados.user.html_url}}" target="_blank" title="{{shotDados.user.name}}">{{shotDados.user.name}}</a></p>
+								</div>
+								<div>
+										<h3>{{shotDados.title}}</h3>
+										<div class="col-md-6">
+										  <img src="{{shotDados.images.normal}}" alt="{{shotDados.title}}" title="{{shotDados.title}}">
+										</div>
+                    <div class="col-md-6 descricao-shot">
+                        {{shotDados.description}}
+                    </div>
+                    <div class="status-shot col-md-12">
+                      <i class="fa fa-eye"></i> {{shotDados.views_count}} views -
+                      <i class="fa fa-heart-o" *ngIf="!shotDados.liked" (click)="curtirShot(shotDados.id); shotDados.liked=true;"></i>
+                      <i class="fa fa-heart" *ngIf="shotDados.liked"></i>
+                      {{shotDados.likes_count}} likes
+                    </div>
+								</div>
+						</div>
+				</div>
+		</div>
 </div>
 </section>
 <div id="footer">
