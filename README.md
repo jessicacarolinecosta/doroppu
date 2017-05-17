@@ -14,4 +14,4 @@ ou
 
 ## Executando testes unitários
 
-Execute `ng test` para executar testes via [Karma](https://karma-runner.github.io).
+Execute `ng test` ou `npm test` para executar testes via [Karma](https://karma-runner.github.io).
