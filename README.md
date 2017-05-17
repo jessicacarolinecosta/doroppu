@@ -1,28 +1,17 @@
-# Teste
+# Doroppu
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+Aplicação em Angular 2 que utiliza a API pública do [dribbble.com](https://dribbble.com/).
 
-## Development server
+## Execução
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Após clonar este repositório, execute:
 
-## Code scaffolding
+`ng serve`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+ou
 
-## Build
+`npm start`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Executando testes unitários
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Execute `ng test` para executar testes via [Karma](https://karma-runner.github.io).

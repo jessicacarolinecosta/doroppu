@@ -6,7 +6,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {Headers} from '@angular/http';
 
-
 // configurações
 @Component({
   selector: 'app-root',
@@ -24,7 +23,6 @@ export class ListaShots {
   shots: any;
   shotDados: any;
   tamanhoGrande: any;
-  autorization: any;
   codigoUsuario: any;
   jsonHeader: any;
 
@@ -36,13 +34,15 @@ export class ListaShots {
 
     // valor do filtro para busca de shots (comments, recent ou views)
     this.filtro = 'recent';
+
+    // página atual a ser exibida
     this.paginaShots = 1;
+
+    // quantidade de shots por página
     this.shotsPorPagina = 30;
 
     // tamanho grande padrão
     this.tamanhoGrande = true;
-
-    this.autorization =  { Authorization: 'Bearer 6ade2196ca410421ca4caa7bc18cd31e3822cbc2380393507bc8fda60258114f' };
 
     // informação do usuario caso autorizado
     this.codigoUsuario = window.location;
@@ -66,7 +66,7 @@ export class ListaShots {
   }
 
   public popularDados(shot) {
-    // guarda o shot que foi clicado para mostrar a descricao
+    // guarda o shot que foi clicada para mostrar a descricao
     this.shotDados = shot;
 
     // verifica se o usuário já deu like no shot
@@ -76,16 +76,16 @@ export class ListaShots {
       }
     );
 
-    // retira as tags em html
+    // retira as tags em html para exibição
     this.shotDados.description = String(this.shotDados.description).replace(/<[^>]+>/gm, '')
   }
 
-  // muda o tamanho da shot baseado no parametro recebido
+  // muda o tamanho da shot baseado no parâmetro recebido
   public mudaTamanhoShots(grande) {
     this.tamanhoGrande = grande;
   }
 
-  // funções executadas ao início
+  // funções executadas ao início da aplicação
   public ngOnInit() {
       this.getShots();
   }
@@ -93,7 +93,7 @@ export class ListaShots {
   /*** Resolução pendente: CORS ***/
   public curtirShot(shotId) {
 
-
+/*
    var json = JSON.stringify({ "client_id" : "cf1d5516801f1146cf1e01760078efbca1daac719a37e8c80c51672e3b1b6b8c", "client_secret" : "3bae822e14f0cf450f12928e9fae6218f1c249ccaadd69cee7797cc0646af136", "code" : this.codigoUsuario });
    var params = 'json=' + json;
    var headersoptions = new Headers();
@@ -111,11 +111,10 @@ export class ListaShots {
    });
 
 
-   this.http.post('https://api.dribbble.com/v1/shots/'+ shotId +'/like',JSON.stringify({ "client_id" : "cf1d5516801f1146cf1e01760078efbca1daac719a37e8c80c51672e3b1b6b8c", "client_secret" : "3bae822e14f0cf450f12928e9fae6218f1c249ccaadd69cee7797cc0646af136", "code" : this.codigoUsuario }), { headers: this.autorization}).subscribe(data => {
+   this.http.post('https://api.dribbble.com/v1/shots/'+ shotId +'/like',JSON.stringify({ "client_id" : "cf1d5516801f1146cf1e01760078efbca1daac719a37e8c80c51672e3b1b6b8c", "client_secret" : "3bae822e14f0cf450f12928e9fae6218f1c249ccaadd69cee7797cc0646af136", "code" : this.codigoUsuario }), { }).subscribe(data => {
       alert('ok');
      }, error => {
     });
+    */
   }
-
-
 }

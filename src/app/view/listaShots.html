@@ -18,19 +18,28 @@
     </div>
   </div>
 </header>
+
 <section id="conteudo">
   <div class="container-fluid">
-  <ul>
-    <li *ngFor="let shot of shots | filtro : 'title' : stringBusca" (click)="popularDados(shot)">
-        <label class="gomodal" for="showblock">
-          <div class="thumb">
-            <img *ngIf="tamanhoGrande" src="{{shot.images.normal}}" alt="">
-            <img *ngIf="!tamanhoGrande" src="{{shot.images.teaser}}" alt="">
-          </div>
-        </label>
-        <label class="titulo-shot">{{shot.title}}</label>
-    </li>
-  </ul>
+    <div *ngIf="shots.length == 0" class="load-wrapp">
+      <div class="loading">
+        <p></p>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+    <ul>
+      <li *ngFor="let shot of shots | filtro : 'title' : stringBusca" (click)="popularDados(shot)">
+          <label class="gomodal" for="showblock">
+            <div class="thumb">
+              <img *ngIf="tamanhoGrande" src="{{shot.images.normal}}" alt="">
+              <img *ngIf="!tamanhoGrande" src="{{shot.images.teaser}}" alt="">
+            </div>
+          </label>
+          <label class="titulo-shot">{{shot.title}}</label>
+      </li>
+    </ul>
   <button type="button" name="button" class="btn" (click)="paginaShots = paginaShots + 1; getShots()">Carregar Mais</button>
 </div>
 
@@ -64,6 +73,7 @@
 		</div>
 </div>
 </section>
+
 <div id="footer">
   <p>2017 doroppu - Jéssica Costa</p>
 </div>
